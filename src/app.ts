@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import orderRouter from './routes/orderRouter';
 import userSeeder from './routes/userSeeder';
+import orderSeeder from './routes/orderSeeder';
 
 const port = process.env.PORT || 5000;
 
@@ -21,6 +22,7 @@ app.use('/api/orders', orderRouter);
 
 // Seeding User Data to Databse.
 app.use('/api/user-seed', userSeeder);
+app.use('/api/orders-seed', orderSeeder);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Surver is running')
