@@ -1,9 +1,10 @@
 import express, {Request, Response, Application} from 'express';
 const app: Application = express();
-
 import { Server } from 'http';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import orderRouter from './routes/orderRouter';
+
 const port = process.env.PORT || 5000;
 
 dotenv.config();
@@ -13,6 +14,9 @@ mongoose.connect(String(process.env.MONGODB_URL)).then(() => {
 }).catch((error) => {
   console.log(error);
 })
+
+// Orders Rest Api .
+app.use('/api/orders', orderRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Surver is running')
