@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "nodemon ./src/app.ts",
-    "start": "node ./dist/app.js",
+    "start": "node ./build/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "tsc"
   },
